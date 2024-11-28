@@ -1,0 +1,31 @@
+arr=[]#creating an empty array
+l2=[]
+
+n=int(input("Enter the number: "))
+#entering elements into the array
+for i in range(n):
+    arr.append(int(input("Enter elements in the arr")))
+
+#sorting the array
+for i in range(0,len(arr)):
+    j=i+1
+    for j in range(j,len(arr)):
+        if(arr[i]>arr[j]):
+            temp=arr[i]
+            arr[i]=arr[j]
+            arr[j]=temp
+
+print(arr)
+#only unique elements
+for i in arr:
+    if(i not in l2):
+        l2.append(i)
+print(l2)
+print("Smallest element: ",arr[0])
+print("largest element: ",arr[len(arr)-1])
+if(len(arr)>4):
+    print("Second Smallest element: ",arr[1])
+    print("Second largest element: ",arr[len(arr)-2])
+else:
+    print("Second Smallest element: ",-1)
+    print("Second largest element: ",-1)
