@@ -1,0 +1,11 @@
+arr=[]
+n=int(input("Enter the number: "))
+for i in range(n):
+    arr.append(int(input("Enter the value: ")))
+
+print(arr)
+sum=0
+for i in range(0,len(arr)):
+    sum+=arr[i]
+
+print(int(sum//len(arr)))
