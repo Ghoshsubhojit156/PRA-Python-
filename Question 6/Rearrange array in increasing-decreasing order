@@ -1,0 +1,16 @@
+arr=[]
+n=int(input("Enter the number: "))
+l2=[]
+for i in range(n):
+    arr.append(int(input(f"Enter your values {i+1}: ")))
+print(arr)
+arr.sort()
+print(arr)
+m=len(arr)
+mid=m//2
+print(mid)
+for i in range(0,mid):
+    l2.append(arr[i])
+for i in range(len(arr)-1,mid-1,-1):
+    l2.append(arr[i])
+print(l2)
