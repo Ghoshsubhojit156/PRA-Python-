@@ -1,0 +1,19 @@
+arr=[]
+n=int(input("Enter the number: "))
+for i in range(n):
+    arr.append(int(input("Enter the values: ")))
+
+print(arr)
+#taking set for unique elements
+s=set()
+for i in range(0,len(arr)):
+    s.add(arr[i])
+print(s)
+count=0
+#comparing unique elements with array elements logic is same like java
+for i in s:
+    for j in range(0,len(arr)):
+        if(i==arr[j]):
+            count+=1
+    print(f"{i}: ",count)
+    count=0
