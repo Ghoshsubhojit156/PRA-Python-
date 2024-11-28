@@ -1,0 +1,38 @@
+class Medicine:
+    def __init__(self,medicine,batch,disease,price):
+        self.medicine=medicine
+        self.batch=batch
+        self.disease=disease
+        self.price=price
+
+
+class Solution:
+    @classmethod
+    def getPriceByDisease(cls,arr_med,dis):
+        res=[]
+        for i in arr_med:
+            if(i.disease==dis):
+                res.append(i.price)
+        return res
+
+        
+
+n=int(input("Enter number: "))
+arr_med=[]
+for i in range(n):
+    medicine=input("Enter medicine name: ")
+    batch=input("Enter batch name: ")
+    disease=input("Enter disease name: ")
+    price=int(input("Enter disease name: "))
+
+    arr_med.append(Medicine(medicine,batch,disease,price))
+
+dis=input("Enter your disease: ")
+s1=Solution()
+res1=s1.getPriceByDisease(arr_med,dis)
+for i in res1:
+    print(i)
+
+
+
+
