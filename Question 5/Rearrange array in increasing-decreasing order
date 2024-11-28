@@ -1,0 +1,25 @@
+l1=[]
+n=int(input("Enter the number: "))
+for i in range(n):
+    l1.append(int(input("Enter your values: ")))
+
+print(l1)
+for i in range(0,len(l1)):
+    j=i+1
+    for j in range(j,len(l1)):
+        if(l1[i]>l1[j]):
+            temp=l1[i]
+            l1[i]=l1[j]
+            l1[j]=temp
+
+print("Printing elements in increasing order")
+print(l1)
+for i in range(0,len(l1)):
+    j=i+1
+    for j in range(j,len(l1)):
+        if(l1[i]<l1[j]):
+            temp=l1[i]
+            l1[i]=l1[j]
+            l1[j]=temp
+print("Printing elements in decreasing order")
+print(l1)
