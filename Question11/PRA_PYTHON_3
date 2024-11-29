@@ -1,0 +1,84 @@
+class CricketPlayer:
+    def __init__(self,pId,pName,pPrice,pType):
+        self.pId=pId
+        self.pName=pName
+        self.pPrice=pPrice
+        self.pType=pType
+
+class ShowRoom:
+    @classmethod
+    def getTotalPaintingPrice(cls,type,l1):
+        price=0
+        for i in l1:
+            if type==i.pType:
+                price+=i.pPrice
+
+        return price
+    @classmethod
+    def getPainterWithMaxCountOfPainting(cls,l1):
+        l2=[]
+        max=0
+        for i in l1:
+            count=0
+            for j in l1:
+                if(i.pName==j.pName):
+                    count+=1
+            if(max<count or max==count):
+                max=count
+                l2.append(i.pName)
+        return l2
+
+n=int(input("Enter the number: "))
+l1=[]
+for i in range(n):
+    pId=int(input("enter your Id: "))
+    pName=input("enter your Name: ")
+    pPrice=int(input("Enter your price: "))
+    pType=input("Enter your Type: ")
+
+    l1.append(CricketPlayer(pId,pName,pPrice,pType))
+
+s1=ShowRoom()
+type=input("Enter the type you want to search: ")
+res=s1.getTotalPaintingPrice(type,l1)
+res1=s1.getPainterWithMaxCountOfPainting(l1)
+if(res>0):
+    print(res)
+else:
+    print("No painting type found")    
+
+res2=[]
+res1.sort()
+for i in res1:
+    if i not in res2: 
+        res2.append(i)
+res2.sort()
+print(res2[0])
+
+
+
+--------------------------------------------------------------------------------------------------output--------------------------------------------------------------------------------------
+Enter the number: 5
+enter your Id: 101
+enter your Name: Raman
+Enter your price: 50000
+Enter your Type: Portrait
+enter your Id: 102
+enter your Name: Kamaal
+Enter your price: 30000
+Enter your Type: Portrait
+enter your Id: 103
+enter your Name: Raman
+Enter your price: 25600
+Enter your Type: Modern
+enter your Id: 104
+enter your Name: Preeti
+Enter your price: 31000
+Enter your Type: Landscape
+enter your Id: 105
+enter your Name: Sumiran
+Enter your price: 50000
+Enter your Type: Modern
+Enter the type you want to search: Modern
+75600
+Raman
