@@ -1,0 +1,55 @@
+class Traveler:
+    def __init__(self,tName,tCountry,tAge,cFrom):
+        self.tName=tName
+        self.tCountry=tCountry
+        self.tAge=tAge
+        self.cFrom=cFrom
+
+class TravelAgency:
+    @classmethod
+    def countTTCountry(cls,fullList,nameCountry):
+        count=0
+        for i in fullList:
+            if nameCountry in i.tCountry:
+                count+=1
+        return count
+    
+    @classmethod
+    def getTTMaxCountry(cls,fullList):
+        max=0
+        name=""
+        for i in fullList:
+            count=0
+            list1=i.tCountry
+            length=len(list1)
+            if length>max:
+                name=""
+                max=length
+                name=name+i.tName
+        return name
+
+
+
+
+n=int(input("enter number: "))
+fullList=[]
+for i in range(n):
+    tName=input("Enter name of Traveler: ")
+    m=int(input("How many country you want to put: "))
+    tCountry=[]
+    for j in range(m):
+        tCountry.append(input(f"Enter country name {j+1}: "))
+    tAge=input("Enter age of Traveler: ")
+    cFrom=input("Enter coutry name of the Traveler: ")
+
+    fullList.append(Traveler(tName,tCountry,tAge,cFrom))
+
+nameCountry=input("Enter name of the country: ")
+
+t1=TravelAgency()
+meth=t1.countTTCountry(fullList,nameCountry)
+print(meth)
+res=t1.getTTMaxCountry(fullList)
+print(res)
+
+
