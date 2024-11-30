@@ -5,6 +5,16 @@ for i in range(n):
     value=input("Enter your value: ")
     dict1[key]=value
 
+
+# m=int(input("Enter how many elements you want to add: "))
+# for i in range(m):
+#     key=input("Enter your key: ")
+#     value=input("Enter your value: ")
+#     dict1.update(key,value)
+
+# print(dict1) this above code will throw an error as dict update only have 1 argument but it got 2 arguments
+
+
 print(dict1["Subhojit"])
 print("Do you want to add more into the dictionary: ")
 m=input("Yes or No: ")
@@ -21,3 +31,16 @@ else:
     # for key,value in dict1.items():
     #     print(key,":",value)
     print(dict1)
+
+for i in dict1.items():
+    print(i)
+
+for i in range(n):
+    key=input("enter key: ")
+    value=input("enter value: ")
+    dict1[key]=value
+    dict1.popitem() #popitem() method is used to pop the item like we do in stack
+
+print(dict1)
+del dict1
+print(dict1)#this will throw an error because already the dict1 has been deleted
