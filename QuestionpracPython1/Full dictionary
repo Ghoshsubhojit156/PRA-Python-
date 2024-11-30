@@ -1,0 +1,23 @@
+dict1={}
+n=int(input("Enter how many numbers you want to enter: "))
+for i in range(n):
+    key=input("Enter your key: ")
+    value=input("Enter your value: ")
+    dict1[key]=value
+
+print(dict1["Subhojit"])
+print("Do you want to add more into the dictionary: ")
+m=input("Yes or No: ")
+if(m.lower()=="yes"):
+    ep={}
+    z=int(input("how many you want to add: "))
+    for i in range(z):
+        key=input("Enter your key: ")
+        value=input("Enter your value: ")
+        ep[key]=value
+    dict1.update(ep)
+    print(dict1)
+else:
+    # for key,value in dict1.items():
+    #     print(key,":",value)
+    print(dict1)
