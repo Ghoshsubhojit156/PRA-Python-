@@ -1,0 +1,66 @@
+class Player:
+    def __init__(self,playerName,playerCountry,playerAge,noOfMatches,noOfRuns,noOfWickets):
+        self.playerName=playerName
+        self.playerCountry=playerCountry
+        self.playerAge=playerAge
+        self.noOfMatches=noOfMatches
+        self.noOfRuns=noOfRuns
+        self.noOfWickets=noOfWickets
+
+class Team:
+    @classmethod
+    def getMinRuns(cls,player):
+        min=99999
+        l1=[]
+        for i in player:
+            if(min>i.noOfRuns):
+                min=i.noOfRuns
+        for i in player:
+            if(min==i.noOfRuns):
+                l1.append(i.playerName)
+                l1.append(i.noOfRuns)
+                l1.append(i.playerCountry)
+        return l1
+    @classmethod
+    def getMaxWickets(cls,player):
+        max=0
+        l1=[]
+        for i in player:
+            if(max<i.noOfWickets):
+                max=i.noOfWickets
+        for i in player:
+            if(max==i.noOfWickets):
+                l1.append(i.playerName)
+                l1.append(i.noOfWickets)
+                l1.append(i.playerCountry)
+        return l1
+
+n=int(input("Enter the number: "))
+player=[]
+for i in range(n):
+    playerName=input("Enter Player Name: ")
+    playerCountry=input("Enter Player country: ")
+    playerAge=int(input("enter player age: "))
+    noOfMatches=int(input("Enter the number of Matches played: "))
+    noOfRuns=int(input("Enter the runs scored: "))
+    noOfWickets=int(input("Enter number of Wickets: "))
+
+    player.append(Player(playerName,playerCountry,playerAge,noOfMatches,noOfRuns,noOfWickets))
+
+t1=Team()
+minimum=t1.getMinRuns(player)
+for i in minimum:
+    print(i)
+name1=t1.getMaxWickets(player)
+for i in name1:
+    print(i)
+
+
+-----------------------------------------------------------------------------------------------------OUTPUT-------------------------------------------------------------------------------------
+
+Klusnar
+3000
+South Africa
+Klusnar
+250
+South Africa
