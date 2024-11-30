@@ -1,0 +1,201 @@
+'''
+Create a class pan .
+Make attributes id , string
+material , string
+brand , string
+price , int
+capacity , int
+
+Write constructor having argument in 
+same order as above . 
+
+Write the solution class
+ and write main method
+implement two static functions 
+namely (costliest pan) and 
+(discounted price) in it. 
+
+Costliest pan function : 
+It accepts 2 arguments , 
+namely the array of pan class 
+objects and material of a pan . 
+It return the costliest pan 
+of the given material.
+
+Discounted price : 
+It accepts 2 arguments , 
+namely , array of pan objects and brand of pan . 
+If capacity of given brand > 500 ml , 
+update price to 20% discount . 
+If capacity > 1000 ml , 
+then update price to 26% discount . 
+
+
+In the main function , 
+take input of variable for 7 class objects . 
+Take material as input , 
+then take brand as input 
+for passing to different functions. 
+Call the costliest pan 
+function , print the id of the 
+object returned. 
+Call the discounted price function , 
+print the new value after updating . 
+
+
+
+Input:
+
+7
+id23
+brass
+a
+200
+120
+id24
+cupper
+b
+300
+1130
+id25
+chromium
+c
+400
+640
+id26
+steel
+d
+500
+950
+id27
+steel
+e
+800
+950
+id28
+iron
+f
+500
+950
+id29
+aluminum
+g
+500
+950
+steel
+d
+
+
+output:
+
+id27
+400
+
+
+'''
+---------------------------------------------------------------------------------------------Answer---------------------------------------------------------------------------------------------
+class Pan:
+    def __init__(self,id,material,brand,price,capacity):
+        self.id=id
+        self.material=material
+        self.brand=brand
+        self.price=price
+        self.capacity=capacity
+
+
+class Solution:
+    @classmethod
+    def costliestpan(cls,pan,mater):
+        id1=""
+        max=0
+        for i in pan:
+            if(mater==i.material):
+                if(max<i.price):
+                    id1=""
+                    max=i.price
+                    id1=id1+i.id
+        return id1
+    
+    @classmethod
+    def DiscountedPrice(cls,pan,brand):
+        disc=0
+        for i in pan:
+            if(brand==i.brand):
+                if(i.capacity>500 and i.capacity<1000):
+                    disc=disc+((i.price*80)/100)
+                elif(i.capacity>1000):
+                    disc=disc+((i.price*74)/100)
+        return disc
+            
+n=int(input("Enter number: "))
+pan=[]
+for i in range(n):
+    id=input("Enter your id: ")
+    material=input("Enter your material: ")
+    brand=input("Enter your Brand: ")
+    price=int(input("Enter your price: "))
+    capacity=int(input("Enter your capacity: "))
+
+    pan.append(Pan(id,material,brand,price,capacity))
+
+mater=input("Enter the material: ")
+brand=input("Enter your Brand: ")
+s1=Solution()
+res=s1.costliestpan(pan,mater)
+res1=s1.DiscountedPrice(pan,brand)
+print(res)
+print(int(res1))
+
+
+-------------------------------------------------------------------------------------------Code Output-----------------------------------------------------------------------------------------
+Enter number: 7         
+Enter your id: id23
+Enter your material: brass
+Enter your Brand: a
+Enter your price: 200
+Enter your capacity: 120
+Enter your id: id24
+Enter your material: cupper
+Enter your Brand: b
+Enter your price: 300
+Enter your capacity: 1150
+Enter your id: id25
+Enter your material: chromium
+Enter your Brand: c
+Enter your price: 400
+Enter your capacity: 650
+Enter your id: id26
+Enter your material: steel
+Enter your Brand: d
+Enter your price: 500
+Enter your capacity: 950
+Enter your id: id27
+Enter your material: steel
+Enter your Brand: e
+Enter your price: 800
+Enter your capacity: 950
+Enter your id: id29
+Enter your material: aluminium
+Enter your Brand: g
+Enter your price: 500
+Enter your capacity: 950
+Enter your id: id28
+Enter your material: iron
+Enter your Brand: f
+Enter your price: 500
+Enter your capacity: 950
+Enter your price: 500
+Enter your capacity: 950
+Enter your id: id28
+Enter your material: iron
+Enter your Brand: f
+Enter your price: 500
+Enter your capacity: 950
+Enter the material: steel
+Enter your Brand: d
+id27
+400
+    
+                
+
+
